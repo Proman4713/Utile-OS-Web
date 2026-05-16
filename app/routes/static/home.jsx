@@ -1,9 +1,6 @@
-import { Welcome } from "../welcome/welcome";
-
 export function meta({}) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Home — Utile OS" }
   ];
 }
 
@@ -12,5 +9,5 @@ export function loader({ context }) {
 }
 
 export default function Home({ loaderData }) {
-  return <Welcome message={loaderData.message} />;
+  return <h1>h</h1>;
 }
