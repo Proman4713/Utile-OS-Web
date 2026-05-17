@@ -1,0 +1,9 @@
+.social {
+	gap: 10px;
+	cursor: pointer;
+	color: var(--grey)
+}
+
+.social:hover {
+	color: var(--brand) !important;
+}

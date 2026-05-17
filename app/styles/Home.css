@@ -1,0 +1,16 @@
+#latest-news {
+	background-color: rgb(from var(--primary) r g b / 0.8);
+	color: rgb(from var(--darkened-brand) r g b / 0.8);
+	padding: 0.5em 1em;
+	border-radius: 100px;
+	cursor: pointer;
+	transition: transform 0.2s ease-in-out;
+}
+
+#latest-news:hover {
+	transform: scale(1.05) !important;
+}
+
+#latest-news:active {
+	transform: scale(0.95) !important;
+}

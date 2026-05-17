@@ -1,0 +1,18 @@
+{
+	"homepage_tagline": "A minimum-friction Linux desktop",
+	"download": "Download",
+	"blog": "Blog",
+	"privacy": "Privacy Policy",
+	"design_principle": "Design shouldn't be an afterthought, it's a principle.",
+	"usability_rule": "User expectations are a rule, not a suggestion.",
+	"based_on_ubuntu": "Based on the latest Ubuntu 26.04 LTS for robust stability and support.",
+	"experimental_only": "This project is in an experimental status due to multiple technical and legal issues that need to be resolved before a stable release can be made. Do not use this OS if you are not a developer or tester.",
+	"supported_archs": "Supported architectures: x86_64 (AMD/Intel).",
+	"support_us": "Please consider [buying me a coffee](https://buymeacoffee.com/codeswallop) and [contributing to the project](https://github.com/Proman4713/Utile-OS).",
+	"made_with_passion": "Made with passion by Aaser Abd-el Sabour (Proman4713).",
+	"youtube": "YouTube",
+	"github": "GitHub",
+	"buy_coffee": "Buy Me a Coffee",
+	"download_utile": "Download Utile 26",
+	"copyright": "Licensed CC Temp-Fr-Now"
+}

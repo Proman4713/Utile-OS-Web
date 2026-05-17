@@ -12,6 +12,8 @@ import { LocaleProvider } from "./contexts/localeManagement";
 import { AppThemeProvider } from "./contexts/colours";
 import Codeblock from "./components/UI/Codeblock";
 import { motion } from "motion/react";
+import Section from "./components/UI/Section";
+import I18NText from "./components/UI/I18NText";
 
 export const links = () => [
 	{ rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -22,7 +24,7 @@ export const links = () => [
 	},
 	{
 		rel: "stylesheet",
-		href: "https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap",
+		href: "https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
 	},
 	{ rel: "stylesheet", href: stylesheet },
 	{ rel: "icon", href: "/favicon.ico" },
@@ -104,13 +106,15 @@ export function ErrorBoundary({ error }) {
 	return (
 		<AppThemeProvider>
 			<LocaleProvider>
-				<h1>
-					{message}
-				</h1>
-				<motion.p>
-					{details}
-				</motion.p>
-				<Codeblock style={{ marginTop: "10px" }} code={stack} />
+				<Section divide={false} noGap>
+					<I18NText mode="subtext">
+						{message}
+					</I18NText>
+					<I18NText mode="subtext" style={{ fontSize: 20, fontWeight: "400", margin: 15 }}>
+						{details}
+					</I18NText>
+					<Codeblock style={{ marginTop: "10px" }} code={stack} />
+				</Section>
 			</LocaleProvider>
 		</AppThemeProvider>
 	);

@@ -72,6 +72,7 @@ export function AppThemeProvider({
 
 	useEffect(() => {
 		//* console.log("theme changed")
+		// eslint-disable-next-line react-hooks/set-state-in-effect
 		setRuntimeTheme()
 
 		const sub = Appearance.addChangeListener(() => {
@@ -88,7 +89,22 @@ export function AppThemeProvider({
 	 * @returns {object} An object with colour values
 	 */
 	const colours = useMemo(() => ({
-		// Configure Later
+		primary: "#B39169",
+		secondary: "#AC8B65",
+		tertiary: "#69B391",
+		quaternary: "#9169B3",
+		monochromatic: "#9B784E",
+
+		// hsl(184, 10%, 25%)
+		grey: "#394546",
+		// hsl(184, 10%, 55%)
+		light_grey: "#819698",
+
+		brand: "#1A5E63",
+		darkenedBrand: "color-mix(in srgb, #1A5E63 100%, #000 100%)",
+
+		dynamicWhite: dark ? "#ffffff" : "#000000",
+		dynamicBlack: dark ? "#000000" : "#ffffff",
 	}), [dark])
 
 	return (
