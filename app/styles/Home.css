@@ -1,7 +1,7 @@
 #latest-news {
 	background-color: rgb(from var(--primary) r g b / 0.8);
 	color: rgb(from var(--darkened-brand) r g b / 0.8);
-	padding: 0.5em 1em;
+	padding: 0.4em 0.8em;
 	border-radius: 100px;
 	cursor: pointer;
 	transition: transform 0.2s ease-in-out;

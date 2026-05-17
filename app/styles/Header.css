@@ -1,11 +1,11 @@
 #sticky-container {
 	position: fixed;
-	width: 100vw;
+	width: 100%;
 	z-index: 9999;
 }
 
 .sticky-outer-wrapper, .sticky-inner-wrapper {
-	max-height: 118px;
+	max-height: 95px;
 }
 
 .sticky-inner-wrapper {
@@ -15,8 +15,8 @@
 
 #header {
 	transition: 300ms ease;
-	margin-bottom: 1.45rem;
-	padding: 10px 10px;
+	margin-bottom: 1.16rem;
+	padding: 8px 8px;
 }
 
 #header.header-transparent {
@@ -29,7 +29,7 @@
 	align-items: center;
 	justify-content: center;
 	
-	max-width: 1450px;
+	/* max-width: 1450px; */
 
 	margin-left: auto;
 	margin-right: auto;
@@ -52,9 +52,9 @@ li.drawer-header *:hover {
 
 .headerTextLogo {
 	display: block;
-	padding: 5px;
+	padding: 4px;
 	margin-right: auto;
-	height: 50px;
+	height: 40px;
 }
 
 .height-max-content {
@@ -74,7 +74,7 @@ li.drawer-header *:hover {
 	display: flex;
 	align-items: center;
 	list-style: none;
-	gap: 40px;
+	gap: 32px;
 	padding: 0;
 }
 
@@ -86,7 +86,7 @@ li.drawer-header *:hover {
 	color: var(--light-grey);
 	transition: all 200ms ease;
 	font-family: 'Ubuntu', sans-serif;
-	font-size: clamp(7.5px, 0.93vw, 12px);
+	font-size: clamp(6px, 0.74vw, 9.6px);
 	font-weight: 500;
 }
 
@@ -108,9 +108,9 @@ li.drawer-header *:hover {
 	position: absolute;
 	width: 60%;
 	transform: scaleX(0);
-	height: 6px;
-	top: 10px;
-	left: 20%;
+	height: 4.8px;
+	top: 8px;
+	left: 16%;
 	background-color: var(--primary-colour);
 	transform-origin: bottom right;
 	transition-timing-function: ease-out;

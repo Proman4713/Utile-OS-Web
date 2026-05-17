@@ -50,7 +50,12 @@ export default function Header({
 		<>
 			<div id="sticky-container" className="height-max-content">
 				<header
-					style={{ backgroundColor: "rgba(255, 255, 255, 0.8)", backdropFilter: "blur(10px)", marginBottom: 0 }}
+					style={{
+						backgroundColor: "rgba(255, 255, 255, 0.8)",
+						backdropFilter: "blur(10px)",
+						marginBottom: 0,
+						[forceBG === "opaque" ? "padding" : ""]: 0 
+					}}
 					id="header"
 					className={forceBG === "opaque" ? "" : "header-transparent"}
 				>
@@ -63,7 +68,7 @@ export default function Header({
 						{showAppName && <Link to="/">
 							<img
 								src={logo}
-								height="40px"
+								height="32px"
 								alt="Logo"
 								loading="lazy"
 								className="no-mobile headerTextLogo"

@@ -1,0 +1,12 @@
+#download-logo {
+	animation: 120s logo-rotation linear forwards;
+}
+
+@keyframes logo-rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

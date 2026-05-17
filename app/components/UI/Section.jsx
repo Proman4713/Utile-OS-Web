@@ -22,7 +22,7 @@ export default function Section({
 		container: {
 			display: "flex",
 			flexDirection: "column",
-			gap: noGap ? 0 : 40,
+			gap: noGap ? 0 : 32,
 			backgroundSize: "cover",
 			justifyContent: "center",
 			alignContent: "center",
@@ -37,7 +37,7 @@ export default function Section({
 				key: `section-child-${i}-${shouldAnimate}`,
 				initial: shouldAnimate ? { opacity: 0, transform: "translateY(30px)" } : false,
 				whileInView: shouldAnimate ? { opacity: 1, transform: "translateY(0px)" } : false,
-				transition: shouldAnimate ? { duration: slow ? 1 : 0.4, delay: i * (slow ? 0.8 : 0.4) } : false,
+				transition: shouldAnimate ? { duration: slow ? 1 : 0.4, delay: 0.3 + (i * (slow ? 0.8 : 0.3)) } : false,
 				viewport: shouldAnimate ? { once: true } : false
 			})
 		)
@@ -58,7 +58,7 @@ export default function Section({
 					: null}
 				{renderChildren}
 			</section>
-			{divide && <div style={{ width: 10, minHeight: 250, backgroundColor: "transparent", opacity: 0.5 }} />}
+			{divide && <div style={{ width: 10, minHeight: 200, backgroundColor: "transparent", opacity: 0.5 }} />}
 		</>
 	);
 }

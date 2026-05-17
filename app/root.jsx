@@ -5,6 +5,7 @@ import {
 	Outlet,
 	Scripts,
 	ScrollRestoration,
+	useLocation,
 } from "react-router";
 
 import stylesheet from "./styles/app.css?url";
@@ -14,6 +15,7 @@ import Codeblock from "./components/UI/Codeblock";
 import { motion } from "motion/react";
 import Section from "./components/UI/Section";
 import I18NText from "./components/UI/I18NText";
+import { useEffect } from "react";
 
 export const links = () => [
 	{ rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -72,8 +74,13 @@ export function Layout({ children }) {
 	);
 }
 
-// For running hooks
 function BodyNavigator() {
+	let location = useLocation();
+
+	useEffect(() => {
+		document.body.scrollTo(0, 0);
+	}, [location.pathname]);
+
 	return <Outlet />
 }
 
@@ -90,7 +97,7 @@ export default function App() {
 export function ErrorBoundary({ error }) {
 	let message = "We have a problem :(";
 	let details = "An unexpected error occurred.";
-	let stack;
+	let stack="xyz";
 
 	if (isRouteErrorResponse(error)) {
 		message = `Error ${error.status}`;
@@ -110,10 +117,10 @@ export function ErrorBoundary({ error }) {
 					<I18NText mode="subtext">
 						{message}
 					</I18NText>
-					<I18NText mode="subtext" style={{ fontSize: 20, fontWeight: "400", margin: 15 }}>
+					<I18NText mode="subtext" style={{ fontSize: 16, fontWeight: "400", margin: 12 }}>
 						{details}
 					</I18NText>
-					<Codeblock style={{ marginTop: "10px" }} code={stack} />
+					<Codeblock style={{ marginTop: "8px" }} code={stack} />
 				</Section>
 			</LocaleProvider>
 		</AppThemeProvider>
