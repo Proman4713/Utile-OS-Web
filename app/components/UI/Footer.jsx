@@ -4,9 +4,10 @@ import { useContext } from "react";
 import { AppThemeContext } from "../../contexts/colours";
 import I18NText from "./I18NText";
 import lockup from "../../assets/SVGs/lockup-transparent.svg"
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { faGithub, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faCoffee, faDownload, faEnvelope, faLegal, faShieldHalved, faWarning } from "@fortawesome/free-solid-svg-icons";
+import useWindowDimensions from "../../utils/windowDimensions";
 
 function Social({ icon, text, to="", external=true, innerKey }) {
 	let component = <></>;
@@ -46,21 +47,24 @@ export const defaultSocials = [
 
 export default function Footer({ paragraphs=defaultParagraphs, socials=defaultSocials }) {
 	const { colours } = useContext(AppThemeContext);
+	const { isTablet, isMobile } = useWindowDimensions();
+	const navigate = useNavigate();
 
 	return (
 		<>
 			<div className="flex space-between align-center" style={{ minHeight: 344, backgroundColor: colours.brand + "44", zIndex: 9999, padding: 20 }}>
-				<div className="flex-cmn space-between align-center" style={{ height: "100%", maxWidth: 560 }}>
+				<div className="flex-cmn space-between align-center" style={{ height: "100%", [isMobile ? "" : "maxWidth"]: 560 }}>
 					<img
 						src={lockup}
 						alt="Utile OS lockup"
 						style={{ height: 80 }}
+						onClick={() => isMobile ? navigate("/about") : null}
 					/>
 					{paragraphs.map((p, i) => {
 						return <I18NText key={i} mode="subtext" className="homepage-text footnote">{p}</I18NText>
 					})}
 				</div>
-				<div className="flex-cmn space-between align-end" style={{ height: "100%", maxWidth: 400 }}>
+				<div className="flex-cmn space-between align-end no-mobile" style={{ height: "100%", maxWidth: 400 }}>
 					{socials.map((social=[], i) => {
 						return <Social key={i} innerKey={i} icon={social[0] || null} text={social[1] || null} to={social[2] || ""} external={social[3]} />
 					})}

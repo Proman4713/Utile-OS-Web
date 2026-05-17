@@ -17,6 +17,9 @@ import neofetchSS from "../../assets/media/neofetch.png";
 import clipboardSS from "../../assets/media/clipboard.png";
 import Footer from "../../components/UI/Footer";
 
+import logo from "../../assets/SVGs/logo-transparent.svg"
+import useWindowDimensions from "../../utils/windowDimensions";
+
 /**
  * 
  * @param {{ src: any, alt: string, initial: any, whileInView: any, transition: any, viewport: any, innerImageStyle: import("react").CSSProperties }} param0 
@@ -24,6 +27,7 @@ import Footer from "../../components/UI/Footer";
  */
 function ScreenshotFrame({ src, alt, initial, whileInView, transition, viewport, innerImageStyle }) {
 	const { colours } = useContext(AppThemeContext);
+	const { isDesktop, isTablet } = useWindowDimensions();
 
 	return (
 		<motion.div
@@ -31,14 +35,14 @@ function ScreenshotFrame({ src, alt, initial, whileInView, transition, viewport,
 				overflow: "hidden",
 				borderRadius: 15,
 				borderWidth: 6.4,
+				borderColor: colours.monochromatic,
 				borderStyle: "solid",
 				maxHeight: 475.2,
 				maxWidth: 844.8,
 				aspectRatio: "16 / 9",
-				borderColor: colours.monochromatic,
 				boxSizing: "border-box",
 				backgroundSize: "cover",
-				boxShadow: "0 5px 15px black"
+				[(isDesktop || isTablet) ? "boxShadow" : ""]: "0 5px 15px black"
 			}}
 			initial={initial} whileInView={whileInView} transition={transition} viewport={viewport}
 		>
@@ -58,6 +62,7 @@ export default function Home() {
 	const { colours } = useContext(AppThemeContext);
 	const shouldAnimate = useLetAnimation();
 	const isSnapshot = import.meta.env.VITE_APP_LATEST_WHAT === "snapshot";
+	const { isMobile } = useWindowDimensions();
 
 	return (
 		<>
@@ -76,7 +81,13 @@ export default function Home() {
 					<I18NText mode="subtext" style={{ fontSize: "0.76em", letterSpacing: "0.5px", fontWeight: 400 }}>{isSnapshot ? "snapshot_release" : "full_release"}</I18NText>
 				</motion.div>
 				<motion.div className="flex justify-center align-center">
-					<svg width="738" viewBox="0 0 10250 3600" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<img
+						src={logo}
+						width={294.912}
+						alt="Utile Logo"
+						className="no-tablet no-desktop"
+					/>
+					<svg width="738" className="no-mobile" viewBox="0 0 10250 3600" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<UtileDrawOn />
 						{/* <g clipPath="url(#clip0_211_381)">
 							<path d="M278.9 1960C212.626 1960 158.9 1906.27 158.9 1840V1760C158.9 1693.73 212.626 1640 278.9 1640H678.9C745.174 1640 798.9 1693.73 798.9 1760V1840C798.9 1906.27 745.174 1960 678.9 1960H278.9Z" fill="url(#paint0_linear_211_381)" />
@@ -151,7 +162,7 @@ export default function Home() {
 							</clipPath>
 						</defs>
 					</svg>
-					<svg width="226.512" viewBox="0 0 3146 2169" style={{ marginLeft: 24 }} fill="none" xmlns="http://www.w3.org/2000/svg">
+					<svg width="226.512" className="no-tablet no-mobile" viewBox="0 0 3146 2169" style={{ marginLeft: 24 }} fill="none" xmlns="http://www.w3.org/2000/svg">
 						<motion.path
 							d="M54 2127C52 2109 51 2086 51 2058C51 2028 51 2005 51 1989C51 1861 78 1747 132 1647C186 1547 253 1455 333 1371C415 1287 497 1205 579 1125C645 1063 704 1005 756 951C810 895 853 840 885 786C917 732 933 674 933 612C933 512 905 442 849 402C793 360 724 339 642 339C568 339 500 352 438 378C378 404 327 434 285 468C243 502 213 528 195 546L3.39746e-06 273C50 225 108 181 174 141C242 98.9999 316 64.9999 396 38.9999C478 12.9999 564 -0.000153065 654 -0.000153065C890 -0.000153065 1062 52.9999 1170 159C1280 263 1335 406 1335 588C1335 688 1310 784 1260 876C1210 966 1146 1052 1068 1134C992 1214 914 1292 834 1368C790 1410 742 1458 690 1512C638 1566 592 1619 552 1671C514 1721 492 1763 486 1797H1398V2127H54ZM2446.36 2169C2286.36 2169 2150.36 2134 2038.36 2064C1928.36 1992 1844.36 1890 1786.36 1758C1730.36 1624 1702.36 1466 1702.36 1284C1702.36 1082 1732.36 904 1792.36 750C1852.36 596 1937.36 467 2047.36 363C2159.36 257 2294.36 177 2452.36 123C2610.36 66.9999 2789.36 36.9999 2989.36 33L3010.36 354C2870.36 358 2741.36 378 2623.36 414C2507.36 450 2408.36 506 2326.36 582C2244.36 656 2184.36 756 2146.36 882C2192.36 862 2241.36 847 2293.36 837C2347.36 825 2399.36 819 2449.36 819C2617.36 819 2752.36 849 2854.36 909C2956.36 967 3030.36 1046 3076.36 1146C3122.36 1246 3145.36 1355 3145.36 1473C3145.36 1551 3131.36 1631 3103.36 1713C3075.36 1795 3032.36 1871 2974.36 1941C2918.36 2009 2846.36 2064 2758.36 2106C2670.36 2148 2566.36 2169 2446.36 2169ZM2443.36 1842C2517.36 1842 2577.36 1824 2623.36 1788C2669.36 1750 2702.36 1703 2722.36 1647C2742.36 1591 2752.36 1535 2752.36 1479C2752.36 1363 2724.36 1276 2668.36 1218C2614.36 1158 2525.36 1128 2401.36 1128C2347.36 1128 2293.36 1133 2239.36 1143C2185.36 1153 2140.36 1167 2104.36 1185C2104.36 1199 2103.36 1215 2101.36 1233C2101.36 1249 2101.36 1264 2101.36 1278C2101.36 1382 2111.36 1477 2131.36 1563C2151.36 1647 2186.36 1715 2236.36 1767C2286.36 1817 2355.36 1842 2443.36 1842Z"
 							fill={colours.primary}
@@ -184,7 +195,7 @@ export default function Home() {
 				<I18NText mode="subtext" className="homepage-text subtitle">usability_rule</I18NText>
 			</Section>
 			<Section divide={false}>
-				<I18NText mode="brand" style={{ fontWeight: 500 }} className="homepage-text">based_on_ubuntu</I18NText>
+				<I18NText mode="brand" style={{ fontWeight: 500, [isMobile ? "fontSize" : ""]: 45 }} className="homepage-text">based_on_ubuntu</I18NText>
 			</Section>
 			<Footer />
 		</>

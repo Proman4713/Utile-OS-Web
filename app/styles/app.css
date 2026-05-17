@@ -296,13 +296,13 @@ ul.feature-list li {
 	}
 }
 
-@media (max-width: 1000px) and (min-width: 600px) {
+@media (max-width: 1000px) and (min-width: 780px) {
 	.no-tablet {
 		display: none !important;
 	}
 }
 
-@media (max-width: 600px) {
+@media (max-width: 780px) {
 	.no-mobile {
 		display: none !important;
 	}

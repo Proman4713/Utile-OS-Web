@@ -2,6 +2,7 @@ import "../../styles/Section.css"
 import React, { useCallback, useContext, useMemo } from "react";
 import { AppThemeContext } from "../../contexts/colours";
 import useLetAnimation from "../../utils/useLetAnimation";
+import useWindowDimensions from "../../utils/windowDimensions";
 
 export default function Section({
 	background=false,
@@ -17,6 +18,7 @@ export default function Section({
 	children
 }) {
 	const shouldAnimate = useLetAnimation();
+	const { isDesktop } = useWindowDimensions();
 
 	const sectionStyles = useMemo(() => ({
 		container: {
@@ -58,7 +60,7 @@ export default function Section({
 					: null}
 				{renderChildren}
 			</section>
-			{divide && <div style={{ width: 10, minHeight: 200, backgroundColor: "transparent", opacity: 0.5 }} />}
+			{(divide && isDesktop) && <div style={{ width: 10, minHeight: 200, backgroundColor: "transparent", opacity: 0.5 }} />}
 		</>
 	);
 }

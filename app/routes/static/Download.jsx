@@ -10,6 +10,7 @@ import { localeContext } from "../../contexts/localeManagement";
 import Footer, { defaultSocials } from "../../components/UI/Footer";
 import TabbedDiv from "../../components/UI/TabbedDiv";
 import { motion } from "motion/react";
+import useWindowDimensions from "../../utils/windowDimensions";
 
 export const meta = () => [
 	{ title: "Download Utile OS" }
@@ -18,13 +19,14 @@ export const meta = () => [
 export default function Download() {
 	const { colours } = useContext(AppThemeContext);
 	const { appText } = useContext(localeContext);
+	const { isDesktop } = useWindowDimensions();
 
 	return (
 		<>
 			<Header forceBG="opaque" />
 			<Section divide={false}>
 				<motion.div className="flex space-between align-center" style={{ flex: 1, width: "95%" }}>
-					<div className="flex-cmn justify-center align-left" style={{ gap: 16, width: "50%" }}>
+					<div className={`flex-cmn justify-center ${isDesktop ? "align-left" : "align-center"}`} style={{ gap: 16, width: isDesktop ? "50%" : "100%" }}>
 						<I18NText
 							mode="brand"
 							className="flex align-center"

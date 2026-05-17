@@ -97,7 +97,7 @@ export default function App() {
 export function ErrorBoundary({ error }) {
 	let message = "We have a problem :(";
 	let details = "An unexpected error occurred.";
-	let stack="xyz";
+	let stack;
 
 	if (isRouteErrorResponse(error)) {
 		message = `Error ${error.status}`;
