@@ -15,10 +15,10 @@ const SecondaryNavItem = ({ text, id="", icon, target="/", onClick=() => { }, in
 	
 	return (
 		<li className="nav-item" {...(id ? { id } : {})} onClick={onClick}>
-			{ icon && <><FontAwesomeIcon icon={icon} fontSize={"2em"} /> &nbsp;&nbsp;</> }
-			<Link to={target} style={{ fontSize: "1.5em" }} target={internal ? "" : "_blank"}>
+			{ icon && <><FontAwesomeIcon icon={icon} fontSize={"2em"} />{text && (<span> &nbsp;&nbsp;</span>)}</> }
+			{text && <Link to={target} style={{ fontSize: "1.5em" }} target={internal ? "" : "_blank"}>
 				{appText[text] || text}
-			</Link>
+			</Link>}
 		</li>
 	)
 }
