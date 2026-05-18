@@ -5,7 +5,6 @@ export function useScrollStyling(colours, forceBG) {
 		function scrollFunction() {
 			const header = document.querySelector("header");
 			if (!header) return;
-			console.log(forceBG, "force")
 			if (forceBG === "opaque") {
 				header.style.padding = '0px 8px';
 				header.classList.remove('header-transparent');

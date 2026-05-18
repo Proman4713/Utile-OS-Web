@@ -8,20 +8,21 @@ import { Link, useNavigate } from "react-router";
 import { faGithub, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faCoffee, faDownload, faEnvelope, faLegal, faShieldHalved, faWarning } from "@fortawesome/free-solid-svg-icons";
 import useWindowDimensions from "../../utils/windowDimensions";
+import { localeContext } from "../../contexts/localeManagement";
 
-function Social({ icon, text, to="", external=true, innerKey }) {
+function Social({ icon, text, to="", external=true, innerKey, RTL }) {
 	let component = <></>;
 
 	if (external) {
 		component = (
-			<div key={innerKey} className="flex align-center social" onClick={() => window.open(to, "_blank")}>
+			<div key={innerKey} className={`${RTL ? "flex-row-reverse" : "flex"} align-center social`} onClick={() => window.open(to, "_blank")}>
 				<FontAwesomeIcon style={{ fontSize: "1.6em" }} icon={icon} />
 				<I18NText mode="brand" className="homepage-text footnote" style={{ color: "inherit" }}>{text}</I18NText>
 			</div>
 		)
 	} else {
 		component = (
-			<Link key={innerKey} className="flex align-center social" to={to}>
+			<Link key={innerKey} className={`${RTL ? "flex-row-reverse" : "flex"} align-center social`} to={to}>
 				<FontAwesomeIcon style={{ fontSize: "1.6em" }} icon={icon} />
 				<I18NText mode="brand" className="homepage-text footnote" style={{ color: "inherit" }}>{text}</I18NText>
 			</Link>
@@ -47,26 +48,31 @@ export const defaultSocials = [
 
 export default function Footer({ paragraphs=defaultParagraphs, socials=defaultSocials }) {
 	const { colours } = useContext(AppThemeContext);
-	const { isTablet, isMobile } = useWindowDimensions();
-	const navigate = useNavigate();
+	const { isMobile } = useWindowDimensions();
+	const { appText } = useContext(localeContext);
+	const { isRTL } = useContext(localeContext);
 
 	return (
 		<>
-			<div className="flex space-between align-center" style={{ minHeight: 344, backgroundColor: colours.brand + "44", zIndex: 9999, padding: 20 }}>
+			<div className="flex space-between align-center" style={{ minHeight: 344, backgroundColor: colours.brand + "44", [isRTL ? "flexDirection" : ""]: "row-reverse", zIndex: 9999, padding: 20 }}>
 				<div className="flex-cmn space-between align-center" style={{ height: "100%", [isMobile ? "" : "maxWidth"]: 560 }}>
 					<img
 						src={lockup}
 						alt="Utile OS lockup"
 						style={{ height: 80 }}
-						onClick={() => isMobile ? navigate("/about") : null}
 					/>
 					{paragraphs.map((p, i) => {
 						return <I18NText key={i} mode="subtext" className="homepage-text footnote">{p}</I18NText>
 					})}
+					<I18NText mode="subtext" className="homepage-text footnote no-tablet no-desktop">
+						<Link to={"/about"} target="_blank" rel="noopener noreferrer" style={{ opacity: 0.5, transition: "all 300ms ease" }}>
+							{appText["experimental"]}
+						</Link>
+					</I18NText>
 				</div>
 				<div className="flex-cmn space-between align-end no-mobile" style={{ height: "100%", maxWidth: 400 }}>
 					{socials.map((social=[], i) => {
-						return <Social key={i} innerKey={i} icon={social[0] || null} text={social[1] || null} to={social[2] || ""} external={social[3]} />
+						return <Social key={i} RTL={isRTL} innerKey={i} icon={social[0] || null} text={social[1] || null} to={social[2] || ""} external={social[3]} />
 					})}
 				</div>
 			</div>

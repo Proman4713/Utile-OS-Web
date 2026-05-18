@@ -1,5 +1,5 @@
 import "../../styles/Header.css";
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AppThemeContext } from "../../contexts/colours";
 import { localeContext } from "../../contexts/localeManagement";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -42,9 +42,44 @@ export default function Header({
 		}
 	]
 }) {
-	const { dark, colours } = useContext(AppThemeContext);
-	const { locale, appText } = useContext(localeContext);
+	const { colours } = useContext(AppThemeContext);
+	const [isDropdownVisible, setIsDropdownVisible] = React.useState(false);
+	const [isDropdownActive, setIsDropdownActive] = React.useState(false);
+	const { appText, locale, setApplicationLocale, availableLocales, isRTL } = useContext(localeContext);
 	useScrollStyling(colours, forceBG);
+
+	useEffect(() => {
+		const handleOutsideClick = (e) => {
+			if (e.target.id !== "pfp") {
+				setIsDropdownActive(false);
+				setTimeout(() => {
+					setIsDropdownVisible(false);
+				}, 200);
+			}
+		};
+
+		document.addEventListener("click", handleOutsideClick);
+		return () => {
+			document.removeEventListener("click", handleOutsideClick);
+		};
+	}, [isDropdownVisible]);
+
+	function toggleDropdown(e) {
+		if (!isDropdownVisible) {
+			setIsDropdownVisible(true);
+			setTimeout(() => {
+				setIsDropdownActive(true);
+			}, 50);
+		} else {
+			setIsDropdownActive(false);
+			setTimeout(() => {
+				setIsDropdownVisible(false);
+			}, 200);
+		}
+		if (e) {
+			e.stopPropagation();
+		}
+	}
 
 	return (
 		<>
@@ -59,7 +94,7 @@ export default function Header({
 					id="header"
 					className={forceBG === "opaque" ? "" : "header-transparent"}
 				>
-					<div className="header-container">
+					<div className="header-container" style={{ [isRTL ? "flexDirection" : ""]: "row-reverse" }}>
 						{(drawer && !showAppName)
 							? <>
 								
@@ -102,8 +137,8 @@ export default function Header({
 								onKeyDown={e => e.key === "Enter" && setDrawerOpen(!drawerOpen)}
 							/>
 							: null}
-						<nav className="nav">
-							<ul className="secondary-nav">
+						<nav className="nav" style={{ [isRTL ? "justifyContent" : ""]: "flex-start" }}>
+							<ul className="secondary-nav" style={{ [isRTL ? "flexDirection" : ""]: "row-reverse" }}>
 								<SecondaryNavItem
 									icon={faDownload}
 									text="download"
@@ -123,9 +158,33 @@ export default function Header({
 								/>
 								<SecondaryNavItem
 									icon={faGlobe}
+									onClick={e => toggleDropdown(e)}
 								/>
 							</ul>
 						</nav>
+						{isDropdownVisible && (
+							<div className="dropdownMenu" style={{
+								backgroundColor: colours.grey + "99",
+								border: `1px solid ${colours.success + "63"}`,
+								transform: `scaleY(${isDropdownActive ? 1 : 0})`,
+								transformOrigin: "top",
+								transition: "all 200ms ease-out",
+								opacity: isDropdownActive ? 1 : 0,
+								[isRTL ? "left" : "right"]: "1%"
+							}}>
+								<ul>
+									{Object.keys(availableLocales).map((item, index) => (
+										<li
+											key={index}
+											onClick={() => setApplicationLocale(item)}
+											style={{ textAlign: locale === "ar" ? "right" : "left" }}
+										>
+											{appText[item] || item}
+										</li>
+									))}
+								</ul>
+							</div>
+						)}
 					</div>
 				</header>
 			</div>

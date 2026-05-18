@@ -112,7 +112,7 @@ const splitByNewlines = (text) => {
  * @param {import("react").HTMLAttributes & import("motion/react").HTMLMotionProps<HTMLHeadingElement> & { style: import("react").CSSProperties, mode: "brand" | "subtext" | "regular", forceText: boolean, ltr: boolean, rtl: boolean, children: import("react").JSX.Element, ref: import("react").Ref }} param0 
  */
 export default function I18NText({ style, mode="regular", forceText=false, ltr=false, rtl=false, children, ref, ...props }) {
-	const { appText, locale } = useContext(localeContext);
+	const { appText, locale, isRTL } = useContext(localeContext);
 
 	const returnComponent = useCallback(() => {
 		if (typeof children === "string" && !forceText) {
@@ -142,7 +142,7 @@ export default function I18NText({ style, mode="regular", forceText=false, ltr=f
 				? ltr
 				: rtl
 					? rtl
-					: locale === "ar" 
+					: isRTL 
 						? "rtl"
 						: "ltr" }, ...style }} {...props}>{returnComponent()}</Tag>
 	);

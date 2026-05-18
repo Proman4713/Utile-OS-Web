@@ -13,6 +13,8 @@ export function LocaleProvider({
 	children
 }) {
 	const [locale, setLocale] = useState("en");
+	const availableLocales = { en, ar }
+	const [ isRTL, setIsRTL ] = useState(false);
 	//const memoizedLocale = useMemo(() => locale, [locale]);
 
 	const getApplicationLocale = () => {
@@ -22,6 +24,7 @@ export function LocaleProvider({
 
 			if (localeSetting !== null) {
 				setLocale(localeSetting);
+				setIsRTL(localeSetting === "ar")
 			}
 		} catch (e) {
 			return;
@@ -33,6 +36,7 @@ export function LocaleProvider({
 			if (typeof window === "undefined") return setLocale(locale);
 			localStorage.setItem('locale', locale);
 			setLocale(locale);
+			setIsRTL(locale === "ar")
 		} catch (e) {
 			return;
 		}
@@ -42,7 +46,13 @@ export function LocaleProvider({
 		//* console.log(locale)
 
 		// base translations for the current locale
-		const base = { en, ar }[locale];
+		const curLocaleJson = { ...availableLocales[locale] };
+		for (const entry of Object.keys(curLocaleJson)) {
+			if (!curLocaleJson[entry]) {
+				delete curLocaleJson[entry]
+			}
+		}
+		const base = { ...en, ...curLocaleJson };
 
 		// dynamic replacements available to templates in the JSON
 		const getDynamicReplacements = () => {
@@ -76,7 +86,9 @@ export function LocaleProvider({
 				locale,
 				getApplicationLocale,
 				setApplicationLocale,
-				appText
+				appText,
+				availableLocales,
+				isRTL
 			}}
 		>
 			{children}

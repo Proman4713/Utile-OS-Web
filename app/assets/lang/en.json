@@ -22,9 +22,17 @@
 	"experimental": "Experimental",
 	"about": "About The Project",
 	"description_preamble": "The Linux desktop scene has been considered unpolished in the eyes of the average macOS or Windows user for *ages*. Trivial things to such users are simply unavailable to them on Linux, at least not by default. Utile is all about *minimal* friction.",
-	"description_reasoning" : "Some of this is caused by accumulated power-user assumptions or 'optimal' design decisions that only fit experienced users, who represent just sub-communities within the *5%* of desktop-using humanity that is the Linux desktop community. Suffice to say that their preferences don't represent those of the 95% on other platforms.",
+	"description_reasoning" : "Some of this is caused by accumulated power-user assumptions or 'optimal' design decisions that only fit experienced users, who represent just sub-communities within the *5%* of desktop-using humanity that is the Linux desktop community. Suffice to say that their preferences don't represent those of the 95% on other systems.",
 	"description_conclusion": "This project aims to reduce friction and increase the intuitiveness of the Linux desktop experience. It is my attempt at creating a more user-friendly Linux desktop experience (as much as I can).",
 	"download_description": "The latest major version of Utile OS, built on Ubuntu {{ubuntu_version}} LTS for amazing stability and usability. This release brings the biggest set of improvements and modifications that will shape Utile OS moving forward.\n\nMajor Utile releases are feature supported for 1 year, where the system can continue to get Utile-specific updates, bug fixes and improvements. After that, a new major release will be available, which will have a newer Ubuntu LTS base. The current major release will then continue to get updates coming from Ubuntu for the next 4 years, but without any Utile-specific updates.\n\nOf course, this is still an experimental project, so there are no guarantees that this will be the actual support timeline, but this is the plan for now.",
 	"tab_description": "Description",
-	"tab_features": "Features"
+	"tab_features": "Features",
+	"ubuntu_gnome_base": "Ubuntu 26.04 LTS base with GNOME 50",
+	"reordered_layout": "Re-ordered desktop UI layout for familiarity to first-time users",
+	"preconfigured_themes": "Pre-configured themes and blur effects",
+	"gnome_extensions": "Pre-installed and configured GNOME extensions for blur, clipboards, UI features and more...",
+	"optimised_keybinds": "Optimised keybinds for Windows and macOS migrants",
+
+	"en": "English",
+	"ar": "العربية"
 }

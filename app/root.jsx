@@ -9,13 +9,14 @@ import {
 } from "react-router";
 
 import stylesheet from "./styles/app.css?url";
-import { LocaleProvider } from "./contexts/localeManagement";
+import { localeContext, LocaleProvider } from "./contexts/localeManagement";
 import { AppThemeProvider } from "./contexts/colours";
 import Codeblock from "./components/UI/Codeblock";
 import { motion } from "motion/react";
 import Section from "./components/UI/Section";
 import I18NText from "./components/UI/I18NText";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import showConsoleWarning from "./utils/consoleWarning";
 
 export const links = () => [
 	{ rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -76,10 +77,16 @@ export function Layout({ children }) {
 
 function BodyNavigator() {
 	let location = useLocation();
+	const { getApplicationLocale } = useContext(localeContext)
 
 	useEffect(() => {
 		document.body.scrollTo(0, 0);
 	}, [location.pathname]);
+
+	useEffect(() => {
+		getApplicationLocale();
+		showConsoleWarning();
+	}, [getApplicationLocale])
 
 	return <Outlet />
 }

@@ -18,15 +18,15 @@ export const meta = () => [
 
 export default function Download() {
 	const { colours } = useContext(AppThemeContext);
-	const { appText } = useContext(localeContext);
+	const { appText, isRTL } = useContext(localeContext);
 	const { isDesktop } = useWindowDimensions();
 
 	return (
 		<>
 			<Header forceBG="opaque" />
 			<Section divide={false}>
-				<motion.div className="flex space-between align-center" style={{ flex: 1, width: "95%" }}>
-					<div className={`flex-cmn justify-center ${isDesktop ? "align-left" : "align-center"}`} style={{ gap: 16, width: isDesktop ? "50%" : "100%" }}>
+				<motion.div className="flex space-between align-center" style={{ flex: 1, [isRTL ? "flexDirection" : ""]: "row-reverse", width: "95%" }}>
+					<div className={`flex-cmn justify-center ${isDesktop ? isRTL ? "align-right" : "align-left" : "align-center"}`} style={{ gap: 16, width: isDesktop ? "50%" : "100%" }}>
 						<I18NText
 							mode="brand"
 							className="flex align-center"
@@ -39,18 +39,16 @@ export default function Download() {
 								{
 									name: "tab_description",
 									component: (
-										<I18NText key={1} style={{ fontSize: 14.4, fontWeight: 700, color: colours.grey + "CC", textAlign: "left" }}>download_description</I18NText>
+										<I18NText key={1} style={{ fontSize: 14.4, fontWeight: 700, color: colours.grey + "CC", textAlign: isRTL ? "right" : "left" }}>download_description</I18NText>
 									)
 								},
 								{
 									name: "tab_features",
 									component: (
-										<ul key={1} className="feature-list">
-											<li>Ubuntu 26.04 LTS base with GNOME 50</li>
-											<li>Re-ordered desktop UI layout for familiarity to first-time users</li>
-											<li>Pre-configured themes and blur effects</li>
-											<li>Pre-installed and configured GNOME extensions for blur, clipboards, UI features and more...</li>
-											<li>Optimised keybinds for Windows and macOS migrants</li>
+										<ul key={1} className="feature-list" style={{ direction: isRTL ? "rtl" : "ltr" }}>
+											{["ubuntu_gnome_base", "reordered_layout", "preconfigured_themes", "gnome_extensions", "optimised_keybinds"].map((feature, i) => (
+												<li key={i}>{appText[feature] || feature}</li>
+											))}
 										</ul>
 									)
 								}
