@@ -80,7 +80,13 @@ function BodyNavigator() {
 	const { getApplicationLocale } = useContext(localeContext)
 
 	useEffect(() => {
+		document.body.tabIndex = -1;
+		document.body.focus({ preventScroll: false });
+	}, []);
+
+	useEffect(() => {
 		document.body.scrollTo(0, 0);
+		document.body.focus({ preventScroll: false });
 	}, [location.pathname]);
 
 	useEffect(() => {

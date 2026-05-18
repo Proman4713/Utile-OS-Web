@@ -65,7 +65,7 @@ export default function Footer({ paragraphs=defaultParagraphs, socials=defaultSo
 						return <I18NText key={i} mode="subtext" className="homepage-text footnote">{p}</I18NText>
 					})}
 					<I18NText mode="subtext" className="homepage-text footnote no-tablet no-desktop">
-						<Link to={"/about"} target="_blank" rel="noopener noreferrer" style={{ opacity: 0.5, transition: "all 300ms ease" }}>
+						<Link to={"/about"} rel="noopener noreferrer" style={{ opacity: 0.5, transition: "all 300ms ease" }}>
 							{appText["experimental"]}
 						</Link>
 					</I18NText>

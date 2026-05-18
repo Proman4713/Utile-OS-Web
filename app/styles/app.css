@@ -56,6 +56,10 @@ body {
 	overflow-y: auto;
 }
 
+body:focus {
+	outline: none;
+}
+
 a {
 	text-decoration: none;
 	color: inherit;
