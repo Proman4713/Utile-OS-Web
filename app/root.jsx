@@ -49,8 +49,6 @@ export function Layout({ children }) {
 
 					{/* Open Graph */}
 					<meta content="Utile OS" property="og:site_name" />
-					<meta content="Homepage" property="og:title" />
-					<meta property="og:description" content="A minimum-friction Linux desktop" />
 
 					<meta content="/logo_original.png" property="og:image" />
 					<meta name="theme-color" content="#1A5E63" />
@@ -59,7 +57,6 @@ export function Layout({ children }) {
 					<meta property="og:type" content="website" />
 
 					{/* Miscellaneous */}
-					<meta name="description" content="A minimum-friction Linux desktop" />
 					<meta name="author" content="Utile OS" />
 				{/* End Embed Data */}
 

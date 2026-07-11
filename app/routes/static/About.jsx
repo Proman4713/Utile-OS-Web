@@ -19,6 +19,10 @@ export default function About() {
 
 	return (
 		<>
+			<meta property="og:title" content="About Utile OS" />
+			<meta property="og:description" content="A minimum-friction Linux desktop" />
+			<meta name="description" content="A minimum-friction Linux desktop" />
+
 			<Header />
 			<Section divide={false} noGap>
 				<I18NText mode="brand" style={{ color: colours.grey }}>about</I18NText>
