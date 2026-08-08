@@ -59,7 +59,8 @@ export function LocaleProvider({
 			const os_version = import.meta.env.VITE_APP_OS_VERSION || "";
 			const latest_snapshot = import.meta.env.VITE_APP_LATEST_SNAPSHOT || "";
 			const ubuntu_version = import.meta.env.VITE_APP_UBUNTU_VERSION || "";
-			return { os_version, latest_snapshot, ubuntu_version };
+			const market_share = import.meta.env.VITE_APP_MARKET_SHARE || "";
+			return { os_version, latest_snapshot, ubuntu_version, market_share };
 		};
 
 		// Recursively replace {{key}} placeholders in strings
