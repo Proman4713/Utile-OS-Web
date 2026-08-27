@@ -114,6 +114,11 @@ input {
 	direction: rtl !important;
 }
 
+/* For containers inside sections, which have a gap of 32px */
+.sub-spacing {
+	gap: 16px;
+}
+
 .flex-container {
 	display: flex;
 	flex: 1;

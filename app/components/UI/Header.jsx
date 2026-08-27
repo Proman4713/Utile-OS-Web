@@ -15,7 +15,7 @@ const SecondaryNavItem = ({ text, id="", icon, target="/", onClick=() => { }, in
 	
 	return (
 		<li className="nav-item" {...(id ? { id } : {})} onClick={onClick}>
-			{ icon && <><FontAwesomeIcon icon={icon} fontSize={"2em"} />{text && (<span> &nbsp;&nbsp;</span>)}</> }
+			{ icon && <Link to={target}><FontAwesomeIcon icon={icon} fontSize={"2em"} />{text && (<span> &nbsp;&nbsp;</span>)}</Link> }
 			{text && <Link to={target} style={{ fontSize: "1.5em" }} target={internal ? "" : "_blank"}>
 				{appText[text] || text}
 			</Link>}
@@ -147,14 +147,13 @@ export default function Header({
 								<SecondaryNavItem
 									icon={faNewspaper}
 									text="blog"
-									target="/"
+									target="/blog"
 									// target="blog.utile-os.com"
 								/>
 								<SecondaryNavItem
 									icon={faShieldHalved}
 									text="privacy"
 									target="/privacy"
-									// target="blog.utile-os.com"
 								/>
 								<SecondaryNavItem
 									icon={faGlobe}

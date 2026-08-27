@@ -136,7 +136,7 @@ export default function I18NText({ style, mode="regular", forceText=false, ltr=f
 		}
 	}, [mode]);
 
-	const Tag = mode === "regular" ? motion.div : motion.h1;
+	const Tag = mode === "regular" ? motion.p : motion.h1;
 
 	return (
 		<Tag ref={ref} style={{ ...{ fontFamily, textAlign: "center", color: colours.grey, direction: 
