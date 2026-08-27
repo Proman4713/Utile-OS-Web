@@ -54,8 +54,8 @@ export default function Footer({ paragraphs=defaultParagraphs, socials=defaultSo
 
 	return (
 		<>
-			<div className="flex space-between align-center" style={{ minHeight: 344, backgroundColor: colours.brand + "44", [isRTL ? "flexDirection" : ""]: "row-reverse", zIndex: 9999, padding: 20 }}>
-				<div className="flex-cmn space-between align-center" style={{ height: "100%", [isMobile ? "" : "maxWidth"]: 560 }}>
+			<div className="flex justify-space-between align-center" style={{ minHeight: 344, backgroundColor: colours.brand + "44", [isRTL ? "flexDirection" : ""]: "row-reverse", zIndex: 9999, padding: 20 }}>
+				<div className="flex-cmn justify-space-between align-center" style={{ height: "100%", [isMobile ? "" : "maxWidth"]: 560 }}>
 					<img
 						src={lockup}
 						alt="Utile OS lockup"
@@ -70,7 +70,7 @@ export default function Footer({ paragraphs=defaultParagraphs, socials=defaultSo
 						</Link>
 					</I18NText>
 				</div>
-				<div className="flex-cmn space-between align-end no-mobile" style={{ height: "100%", maxWidth: 400 }}>
+				<div className="flex-cmn justify-space-between align-end no-mobile" style={{ height: "100%", maxWidth: 400 }}>
 					{socials.map((social=[], i) => {
 						return <Social key={i} RTL={isRTL} innerKey={i} icon={social[0] || null} text={social[1] || null} to={social[2] || ""} external={social[3]} />
 					})}

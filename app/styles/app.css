@@ -137,6 +137,11 @@ input {
 	flex-direction: column-reverse;
 }
 
+.flex-row {
+	display: flex;
+	flex-direction: row;
+}
+
 .flex-row-reverse {
 	display: flex;
 	flex-direction: row-reverse;
@@ -165,12 +170,12 @@ input {
 	justify-content: center;
 }
 
-.space-around {
+.justify-space-around {
 	display: flex;
 	justify-content: space-around;
 }
 
-.space-between {
+.justify-space-between {
 	display: flex;
 	justify-content: space-between;
 }

@@ -29,7 +29,7 @@ export default function Download() {
 
 			<Header forceBG="opaque" />
 			<Section divide={false}>
-				<motion.div className="flex space-between align-center" style={{ flex: 1, [isRTL ? "flexDirection" : ""]: "row-reverse", width: "95%" }}>
+				<motion.div className="flex justify-space-between align-center" style={{ flex: 1, [isRTL ? "flexDirection" : ""]: "row-reverse", width: "95%" }}>
 					<div className={`flex-cmn justify-center ${isDesktop ? isRTL ? "align-right" : "align-left" : "align-center"}`} style={{ gap: 16, width: isDesktop ? "50%" : "100%" }}>
 						<I18NText
 							mode="brand"
