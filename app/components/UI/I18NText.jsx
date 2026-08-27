@@ -1,6 +1,7 @@
 import { useCallback, useContext, useEffect, useMemo } from 'react';
 import { localeContext } from '../../contexts/localeManagement';
 import { motion } from "motion/react";
+import { AppThemeContext } from '../../contexts/colours';
 
 /**
  * Parses markdown links [text](url), italics *text*, and newlines in text
@@ -113,6 +114,7 @@ const splitByNewlines = (text) => {
  */
 export default function I18NText({ style, mode="regular", forceText=false, ltr=false, rtl=false, children, ref, ...props }) {
 	const { appText, locale, isRTL } = useContext(localeContext);
+	const { colours } = useContext(AppThemeContext)
 
 	const returnComponent = useCallback(() => {
 		if (typeof children === "string" && !forceText) {
@@ -137,7 +139,7 @@ export default function I18NText({ style, mode="regular", forceText=false, ltr=f
 	const Tag = mode === "regular" ? motion.div : motion.h1;
 
 	return (
-		<Tag ref={ref} style={{ ...{ fontFamily, textAlign: "center", direction: 
+		<Tag ref={ref} style={{ ...{ fontFamily, textAlign: "center", color: colours.grey, direction: 
 			ltr
 				? ltr
 				: rtl

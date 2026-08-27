@@ -188,7 +188,7 @@ export default function Home() {
 						/>
 					</svg>
 				</motion.div>
-				<I18NText className="homepage-text subtitle" style={{ fontSize: 32, color: colours.grey, fontWeight: 600 }}>homepage_tagline</I18NText>
+				<I18NText className="homepage-text subtitle" style={{ fontSize: 32, fontWeight: 600 }}>homepage_tagline</I18NText>
 			</Section>
 			<Section>
 				<ScreenshotFrame src={neofetchSS} alt="neofetch screenshot" />

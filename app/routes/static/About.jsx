@@ -25,7 +25,7 @@ export default function About() {
 
 			<Header />
 			<Section divide={false} noGap>
-				<I18NText mode="brand" style={{ color: colours.grey }}>about</I18NText>
+				<I18NText mode="brand">about</I18NText>
 				<motion.img
 					src={lockupStrict}
 					className="no-mobile"
@@ -38,13 +38,13 @@ export default function About() {
 				/>
 			</Section>
 			<Section divide={false} noGap>
-				<I18NText mode="brand" style={{ color: colours.grey, fontSize: isMobile ? 22 : 32, maxWidth: "85%" }}>description_preamble</I18NText>
+				<I18NText mode="brand" style={{ fontSize: isMobile ? 22 : 32, maxWidth: "85%" }}>description_preamble</I18NText>
 			</Section>
 			<Section divide={false} noGap>
-				<I18NText mode="subtext" style={{ color: colours.grey, fontSize: isMobile ? 22 : 32, maxWidth: "85%" }}>description_reasoning</I18NText>
+				<I18NText mode="subtext" style={{ fontSize: isMobile ? 22 : 32, maxWidth: "85%" }}>description_reasoning</I18NText>
 			</Section>
 			<Section divide={false} noGap>
-				<I18NText mode="subtext" style={{ color: colours.grey, fontSize: isMobile ? 22 : 32, maxWidth: "85%" }}>description_conclusion</I18NText>
+				<I18NText mode="subtext" style={{ fontSize: isMobile ? 22 : 32, maxWidth: "85%" }}>description_conclusion</I18NText>
 			</Section>
 			<Footer socials={defaultSocials.filter((k, i) => k[1] !== "experimental")} />
 		</>

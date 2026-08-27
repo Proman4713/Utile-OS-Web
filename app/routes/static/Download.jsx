@@ -34,7 +34,7 @@ export default function Download() {
 						<I18NText
 							mode="brand"
 							className="flex align-center"
-							style={{ fontSize: 48, color: colours.grey }}
+							style={{ fontSize: 48 }}
 						>
 							utile_version
 						</I18NText>
