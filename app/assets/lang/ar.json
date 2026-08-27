@@ -29,7 +29,7 @@
 	"tab_features": "الخواصّ",
 	"ubuntu_gnome_base": "قاعدة Ubuntu {{ubuntu_version}} LTS مع GNOME 50",
 	"reordered_layout": "إعادة ترتيب واجهة سطح المكتب للألفة للمستخدمين الجدد",
-	"preconfigured_themes": "سمات وتأثيرات ضبابية مُعدّة مسبقًا",
+	"preconfigured_themes": "سمات لواجهة المستخدم وقائمة التشخيل وتأثيرات ضبابية مُعدّة مسبقًا",
 	"gnome_extensions": "امتدادات GNOME مثبتة ومُعدة مسبقًا للضبابية، الحافظات، ميزات واجهة المستخدم والمزيد...",
 	"optimised_keybinds": "اختصارات لوحة مفاتيح محسّنة للمهاجرين من Windows و macOS"
 }
