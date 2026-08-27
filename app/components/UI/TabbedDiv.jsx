@@ -12,7 +12,7 @@ export default function TabbedDiv({ tabs=[] }) {
 
 	return (
 		<div className="flex-cmn justify-center align-center" style={{ minWidth: "100%" }}>
-			<div className="flex space-around align-center" style={{ width: "100%", [isRTL ? "flexDirection": ""]: "row-reverse" }}>
+			<div className="flex justify-space-around align-center" style={{ width: "100%", [isRTL ? "flexDirection": ""]: "row-reverse" }}>
 				{tabs.map((tab, index) => (
 					<AppButton
 						key={index}
