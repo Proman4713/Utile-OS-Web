@@ -66,9 +66,10 @@ export default function Home() {
 
 	return (
 		<>
-			<meta property="og:title" content="Homepage" />
-			<meta property="og:description" content="A minimum-friction Linux desktop" />
-			<meta name="description" content="A minimum-friction Linux desktop" />
+			<meta property='og:title' content='Homepage' />
+			<meta property='twitter:title' content='Homepage' />
+			<meta property='og:description' content='A minimum-friction Linux desktop' />
+			<meta name='description' content='A minimum-friction Linux desktop' />
 
 			<Header />
 			<Section noGap slow divide={false}>

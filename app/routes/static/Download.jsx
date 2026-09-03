@@ -23,9 +23,10 @@ export default function Download() {
 
 	return (
 		<>
-			<meta property="og:title" content="Download Utile OS" />
-			<meta property="og:description" content={`Utile OS ${import.meta.env.VITE_APP_OS_VERSION || "26"} — The minimum-friction Linux desktop`} />
-			<meta name="description" content={`Utile OS ${import.meta.env.VITE_APP_OS_VERSION || "26"} — The minimum-friction Linux desktop`} />
+			<meta property='og:title' content='Download Utile OS' />
+			<meta property='twitter:title' content='Download Utile OS' />
+			<meta property='og:description' content={`Utile OS ${import.meta.env.VITE_APP_OS_VERSION || '26'} — The minimum-friction Linux desktop`} />
+			<meta name='description' content={`Utile OS ${import.meta.env.VITE_APP_OS_VERSION || '26'} — The minimum-friction Linux desktop`} />
 
 			<Header forceBG="opaque" />
 			<Section divide={false}>

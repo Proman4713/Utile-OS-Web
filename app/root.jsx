@@ -44,7 +44,7 @@ export function Layout({ children }) {
 				{/* Embed Data */}
 					{/* Twitter, not X */}
 					<meta content="summary" property="twitter:card" />
-					<meta content="Utile OS" property="twitter:title" />
+					{/* twitter:title provided per route */}
 					<meta content="/logo_original.png" property="twitter:image" />
 
 					{/* Open Graph */}
